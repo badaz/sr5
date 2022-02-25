@@ -1,0 +1,9 @@
+/* only required in dev
+
+ in prod, foundry loads style.css, as compiled by vite/rollup
+ in prod, the less imports at the top of sr5.js indicate those rules
+          should be compiled into style.css
+
+ in dev, foundry loads style.css, this file, which is a no-op
+ in dev, sr5.js imports less files directly
+ */
