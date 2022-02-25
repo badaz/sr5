@@ -1,3 +1,7 @@
+@import './colorSR5.less';
+@import './fontSR5.less';
+@import './imageSR5.less';
+
 .app {
     color: @neutralLightColor;
     background: none;
@@ -11,7 +15,7 @@
             background: @neutralLightColor;
         }
 
-        &.form, &.scene-sheet, &.token-sheet, &.combat-sheet, &.folder-edit, &[id^=app-]:not(.dialog),&&[id^=permission-], 
+        &.form, &.scene-sheet, &.token-sheet, &.combat-sheet, &.folder-edit, &[id^=app-]:not(.dialog),&&[id^=permission-],
         &#permission, &[id^=playlist-config-], &[id^=rolltable-sheet-], &[id^=cards-sheet-], &[id^=ambient-light-config-], &.macro-sheet {
             select{
                 border: 1px solid @mainColor;
@@ -532,12 +536,12 @@
         grid-template-columns: repeat(3, 33%);
         background: fade(@subColor, 25%);
         border: 1px solid @subColor;
-    
+
         .effect-control{
             width: 35px;
             height: 35px;
             border: 1px solid @subColor;
-            
+
             &.active{
                 background: fade(@subColor, 75%);
                 border: 1px solid @subColor;
@@ -565,7 +569,7 @@
             }
         }
 
-        
+
     }
 }
 
@@ -742,7 +746,7 @@
 }
 
 #controls {
-    
+
     ol.main-controls {
         padding-left: 10px;
         width: 55px;
@@ -777,7 +781,7 @@
     }
 
     .main-controls {
-        
+
         .scene-control {
             width: 30px;
             height: 30px;
@@ -828,7 +832,7 @@
                 box-shadow: none;
             }
 
-            
+
         }
     }
 
@@ -854,7 +858,7 @@
             -webkit-transition: all 1s ease;
             -moz-transition: all 1s ease;
             -o-transition: all 1s ease;
-            transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1); 
+            transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
 
             &:hover {
                 color: @neutralLightColor;
@@ -882,7 +886,7 @@
                 background: fade(@subColor, 25%);
                 transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
             }
-            
+
             &.active {
                 color: @neutralLightColor;
                 background: fade(@subColor, 50%);
@@ -1374,7 +1378,7 @@
                 .combatant-control {
                     color: @mainColor;
                     flex: 0 0 23px;
-                    
+
 
                     &:hover {
                         color: fade(@subColor, 50%);
@@ -1681,7 +1685,7 @@
 }
 
 .dialog {
-    
+
     .window-header {
         background: @neutralDarkColor;
     }
@@ -1708,7 +1712,7 @@
 
             .SR5jet {
                 height: auto;
-                
+
                 input {
                     background    : none;
                     color         : @neutralDarkColor;
@@ -1903,7 +1907,7 @@
                 -moz-transition: all 1s ease;
                 -o-transition: all 1s ease;
                 transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
-                
+
 
                 &:not(:last-child) {
                 box-shadow: 0 1px 0 fade(@mainColor, 50%);
@@ -1945,7 +1949,7 @@
                 margin: 2px 8px 0 2px
             }
         }
-        
+
     }
 
 }

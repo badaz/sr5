@@ -11,10 +11,10 @@
   "compatibleCoreVersion": "9.249",
   "scripts": [],
   "esmodules": [
-    "sr5.js"
+    "sr5.es.js"
   ],
   "styles": [
-    "css/sr5.css"
+    "styles.css"
   ],
   "languages": [
     {

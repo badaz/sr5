@@ -2,5 +2,11 @@
   "dependencies": {
     "gulp": "^4.0.2",
     "gulp-less": "^4.0.1"
+  },
+  "devDependencies": {
+    "browserslist": "^4.19.3",
+    "less": "^4.1.2",
+    "vite": "^2.8.4",
+    "vite-plugin-handlebars": "^1.6.0"
   }
 }
