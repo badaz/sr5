@@ -1,5 +1,3 @@
-import handlebars from "vite-plugin-handlebars";
-
 const config = {
   publicDir: "public",
   base: "/systems/sr5/",
@@ -15,12 +13,14 @@ const config = {
     },
   },
   build: {
+    assetsDir: "assets",
+    assetsInlineLimit: 0,
     outDir: "dist",
     emptyOutDir: true,
     sourcemap: true,
     lib: {
       name: "sr5",
-      entry: "sr5.js",
+      entry: "src/sr5.js",
       formats: ["es"],
       fileName: "sr5",
     },
@@ -28,7 +28,6 @@ const config = {
   compilerOptions: {
     types: ["vite/client"],
   },
-  plugins: [handlebars()],
 };
 
 export default config;
