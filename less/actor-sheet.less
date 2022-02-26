@@ -1,6 +1,6 @@
 @import "./themes.less";
 
-.buildThemes(@index) when (@index < @numberOfThemes + 1) {
+.buildThemes(@index) {
   .theme-@{index} {
     .themeDefs(@index);
 
@@ -688,6 +688,5 @@
   }
 }
 
-/* ----------------------------------------- */
-/* Images
-/* ----------------------------------------- */
+.buildThemes(sr5);
+.buildThemes(sr6);
