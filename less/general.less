@@ -1,306 +1,308 @@
 /* ----------------------------------------- */
 /* Modif du navigateur
 /* ----------------------------------------- */
+@import "./themes.less";
 
-::-webkit-scrollbar {
-    width: 3px;
-    height: 3px;
-}
+.buildThemes(@index) when (@index < @numberOfThemes + 1) {
+  .theme-@{index} {
+    .themeDefs(@index);
 
-::-webkit-scrollbar-thumb {
-    background: @mainColor;
-    border: 0px;
-}
+    ::-webkit-scrollbar {
+      width: 3px;
+      height: 3px;
+    }
 
+    ::-webkit-scrollbar-thumb {
+      background: @mainColor;
+      border: 0px;
+    }
 
+    /* ----------------------------------------- */
+    /* Modif générale
+    /* ----------------------------------------- */
 
+    body {
+      font-family: @SR_BodyText;
+    }
 
-/* ----------------------------------------- */
-/* Modif générale
-/* ----------------------------------------- */
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
 
+    a:hover {
+      text-shadow: none;
+    }
 
+    select {
+      border: 0;
+      height: auto;
+      background-color: transparent;
+      color: fade(@neutralDarkColor, 70%);
+      width: 100%;
+      padding: 0;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      font-size: @SR_FontSizeNormal;
+      font-family: @SR_BodyText;
+      max-width: 100%; /* useful when width is set to anything other than 100% */
+      margin-left: -4px;
+    }
 
-body {
-    font-family: @SR_BodyText;
-}
+    .clear-height {
+      height: auto !important;
+      border: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+    }
 
-a:hover {
-    text-shadow: none;
-}
+    input[type="range"]:focus {
+      outline: none;
+    }
 
-select {
-    border: 0;
-    height: auto;
-    background-color: transparent;
-    color: fade(@neutralDarkColor, 70%);
-    width: 100%;
-    padding: 0;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-size: @SR_FontSizeNormal;
-    font-family: @SR_BodyText;
-    max-width: 100%; /* useful when width is set to anything other than 100% */
-    margin-left: -4px;
-}
+    input[type="range"]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 5px;
+      cursor: pointer;
+      // animate: 0.2s;
+      box-shadow: 1px 1px 1px @neutralDarkColor;
+      background: fade(@mainColor, 50%);
+      border-radius: 3px;
+      border: 1px solid @mainColor;
+    }
 
-.clear-height {
-    height: auto !important;
-    border: 0!important;
-    padding-top: 0!important;
-    padding-bottom: 0!important;
-}
+    input[type="range"]::-webkit-slider-thumb {
+      box-shadow: 1px 1px 1px @neutralDarkColor;
+      border: 1px solid @neutralDarkColor;
+      height: 14px;
+      width: 8px;
+      border-radius: 3px;
+      background: @subColor;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -5.5px;
+    }
 
-input[type=range] {
-    -webkit-appearance: none;
-    width: 100%;
-}
+    input[type="range"]:focus::-webkit-slider-runnable-track {
+      background: @mainColor;
+    }
 
-input[type=range]:focus {
-    outline: none;
-}
+    input[type="range"]::-moz-range-track {
+      width: 100%;
+      height: 5px;
+      cursor: pointer;
+      // animate: 0.2s;
+      box-shadow: 1px 1px 1px @neutralDarkColor;
+      background: fade(@mainColor, 50%);
+      border-radius: 3px;
+      border: 1px solid @neutralDarkColor;
+    }
 
-input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 5px;
-    cursor: pointer;
-    // animate: 0.2s;
-    box-shadow: 1px 1px 1px @neutralDarkColor;
-    background: fade(@mainColor, 50%);
-    border-radius: 3px;
-    border: 1px solid @mainColor;
-}
+    input[type="range"]::-moz-range-thumb {
+      box-shadow: 1px 1px 1px @neutralDarkColor;
+      border: 1px solid @neutralDarkColor;
+      height: 18px;
+      width: 8px;
+      border-radius: 3px;
+      background: @subColor;
+      cursor: pointer;
+    }
 
-input[type=range]::-webkit-slider-thumb {
-    box-shadow: 1px 1px 1px @neutralDarkColor;
-    border: 1px solid @neutralDarkColor;
-    height: 14px;
-    width: 8px;
-    border-radius: 3px;
-    background: @subColor;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -5.5px;
-}
+    input[type="range"]::-ms-track {
+      width: 100%;
+      height: 5px;
+      cursor: pointer;
+      // animate: 0.2s;
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
-    background: @mainColor;
-}
+    input[type="range"]::-ms-fill-lower {
+      background: fade(@mainColor, 50%);
+      border: 1px solid @neutralDarkColor;
+      border-radius: 6px;
+      box-shadow: 1px 1px 1px @neutralDarkColor;
+    }
 
-input[type=range]::-moz-range-track {
-    width: 100%;
-    height: 5px;
-    cursor: pointer;
-    // animate: 0.2s;
-    box-shadow: 1px 1px 1px @neutralDarkColor;
-    background: fade(@mainColor, 50%);
-    border-radius: 3px;
-    border: 1px solid @neutralDarkColor;
-}
+    input[type="range"]::-ms-fill-upper {
+      background: fade(@mainColor, 50%);
+      border: 1px solid @neutralDarkColor;
+      border-radius: 6px;
+      box-shadow: 1px 1px 1px @neutralDarkColor;
+    }
 
-input[type=range]::-moz-range-thumb {
-    box-shadow: 1px 1px 1px @neutralDarkColor;
-    border: 1px solid @neutralDarkColor;
-    height: 18px;
-    width: 8px;
-    border-radius: 3px;
-    background: @subColor;
-    cursor: pointer;
-}
+    input[type="range"]::-ms-thumb {
+      box-shadow: 1px 1px 1px @neutralDarkColor;
+      border: 1px solid @neutralDarkColor;
+      height: 18px;
+      width: 8px;
+      border-radius: 3px;
+      background: #97b79f;
+      cursor: pointer;
+    }
 
-input[type=range]::-ms-track {
-    width: 100%;
-    height: 5px;
-    cursor: pointer;
-    // animate: 0.2s;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-}
+    input[type="range"]:focus::-ms-fill-lower {
+      background: fade(@mainColor, 50%);
+    }
 
-input[type=range]::-ms-fill-lower {
-    background: fade(@mainColor, 50%);
-    border: 1px solid @neutralDarkColor;
-    border-radius: 6px;
-    box-shadow: 1px 1px 1px @neutralDarkColor;
-}
+    input[type="range"]:focus::-ms-fill-upper {
+      background: fade(@mainColor, 50%);
+    }
 
-input[type=range]::-ms-fill-upper {
-    background: fade(@mainColor, 50%);
-    border: 1px solid @neutralDarkColor;
-    border-radius: 6px;
-    box-shadow: 1px 1px 1px @neutralDarkColor;
-}
+    /* ----------------------------------------- */
+    /* Container
+    /* ----------------------------------------- */
 
-input[type=range]::-ms-thumb {
-    box-shadow: 1px 1px 1px @neutralDarkColor;
-    border: 1px solid @neutralDarkColor;
-    height: 18px;
-    width: 8px;
-    border-radius: 3px;
-    background: #97B79F;
-    cursor: pointer;
-}
+    .SR-mainContainer {
+      padding: 0px 5px 0px 5px;
+    }
 
-input[type=range]:focus::-ms-fill-lower {
-    background: fade(@mainColor, 50%);
-}
+    /* ----------------------------------------- */
+    /* Couleur
+    /* ----------------------------------------- */
 
-input[type=range]:focus::-ms-fill-upper {
-    background: fade(@mainColor, 50%);
-}
+    .SR-SubColor {
+      color: @subColor;
+    }
 
-/* ----------------------------------------- */
-/* Container
-/* ----------------------------------------- */
+    .SR-SubColor50 {
+      color: fade(@subColor, 50%);
+    }
 
-.SR-mainContainer {
-    padding: 0px 5px 0px 5px;
-}
+    .SR-SubColor25 {
+      color: fade(@subColor, 25%);
+    }
 
-/* ----------------------------------------- */
-/* Couleur
-/* ----------------------------------------- */
+    .SR-MainColor {
+      color: @mainColor;
+    }
 
-.SR-SubColor {
-	color: @subColor;
-}
+    .SR-popColor {
+      color: @popColor;
+    }
 
-.SR-SubColor50 {
-	color: fade(@subColor, 50%);
-}
+    .SR-NeutralLightColor {
+      color: @neutralLightColor;
+    }
 
-.SR-SubColor25 {
-	color: fade(@subColor, 25%);
-}
+    .SR-GreyColor {
+      color: fade(@neutralDarkColor, 70%);
+    }
 
-.SR-MainColor {
-	color: @mainColor;
-}
+    .SR-LightGreyColor {
+      color: fade(@neutralDarkColor, 25%);
+    }
 
-.SR-popColor {
-	color: @popColor;
-}
+    /* ----------------------------------------- */
+    /* Format, spacer, lignes
+    /* ----------------------------------------- */
+    .SR-Bold {
+      font-family: @SR_BodyTextBold;
+    }
 
-.SR-NeutralLightColor {
-    color: @neutralLightColor;
-}
+    .SR-TextRight {
+      text-align: right;
+    }
 
-.SR-GreyColor {
-    color: fade(@neutralDarkColor, 70%);
-}
+    .SR-TextCenter {
+      text-align: center;
+    }
 
-.SR-LightGreyColor {
-    color: fade(@neutralDarkColor, 25%);
-}
+    .SR-SelectCenter {
+      text-align: center;
+      text-align-last: center;
+    }
 
-/* ----------------------------------------- */
-/* Format, spacer, lignes
-/* ----------------------------------------- */
-.SR-Bold {
-    font-family: @SR_BodyTextBold;
-}
+    .SR-TextCenterOverflow {
+      display: flex;
+      justify-content: center;
+      overflow: visible;
+      white-space: nowrap;
+    }
 
-.SR-TextRight {
-    text-align: right;
-}
+    .SR-TextOverflow {
+      display: flex;
+      overflow: visible;
+      white-space: nowrap;
+    }
 
-.SR-TextCenter {
-  text-align: center;
-}
+    .SR-TextUppercase {
+      text-transform: uppercase;
+    }
 
-.SR-SelectCenter {
-  text-align: center;
-  text-align-last: center;
-}
+    .SR-PaddingTop5 {
+      padding-top: 5px;
+    }
 
-.SR-TextCenterOverflow {
-  display: flex;
-  justify-content: center;
-  overflow: visible;
-  white-space: nowrap;
-}
+    .SR-PaddingTop10 {
+      padding-top: 10px;
+    }
 
-.SR-TextOverflow {
-  display: flex;
-  overflow: visible;
-  white-space: nowrap;
-}
+    .SR-PaddingBottom5 {
+      padding-bottom: 5px;
+    }
 
-.SR-TextUppercase {
-    text-transform: uppercase;
-}
+    .SR-PaddingLeft5 {
+      padding-left: 5px;
+    }
 
-.SR-PaddingTop5 {
-    padding-top: 5px;
-}
+    .SR-PaddingLeft3 {
+      padding-left: 3px;
+    }
 
-.SR-PaddingTop10 {
-    padding-top: 10px;
-}
+    .SR-PaddingLeft10 {
+      padding-left: 10px;
+    }
 
-.SR-PaddingBottom5 {
-    padding-bottom: 5px;
-}
+    .SR-PaddingRight3 {
+      padding-right: 3px;
+    }
 
-.SR-PaddingLeft5 {
-    padding-left: 5px;
-}
+    .SR-PaddingRight5 {
+      padding-right: 5px;
+    }
 
-.SR-PaddingLeft3 {
-    padding-left: 3px;
-}
+    .SR-PaddingRight10 {
+      padding-right: 10px;
+    }
 
-.SR-PaddingLeft10 {
-    padding-left: 10px;
-}
+    .SR-MarginRight10 {
+      margin-right: 10px;
+    }
 
-.SR-PaddingRight3 {
-    padding-right: 3px;
-}
+    .SR-MarginLeft10 {
+      margin-left: 10px;
+    }
 
-.SR-PaddingRight5 {
-    padding-right: 5px;
-}
+    .SR-BorderBottomTransparent {
+      border-bottom: 1px solid rgba(0, 0, 0, 0);
+    }
 
-.SR-PaddingRight10 {
-    padding-right: 10px;
-}
+    .incomplete {
+      white-space: nowrap !important;
 
-.SR-MarginRight10 {
-    margin-right: 10px;
-}
+      &::after {
+        position: absolute;
+        width: 0px;
+        color: @popColor;
+        // left: -10px;
+        // font-family: "Font Awesome 5 Free";
+        // font-weight: 600;
+        // content: "\f00d ";
+        left: -2px;
+        content: "!";
+      }
+    }
 
-.SR-MarginLeft10 {
-    margin-left: 10px;
-}
-
-.SR-BorderBottomTransparent {
-    border-bottom: 1px solid rgba(0, 0, 0, 0);
-}
-
-.incomplete {
-  white-space: nowrap !important;
-
-  &::after {
-    position: absolute;
-    width: 0px;
-    color: @popColor;
-    // left: -10px;
-    // font-family: "Font Awesome 5 Free";
-    // font-weight: 600;
-    // content: "\f00d ";
-    left: -2px;
-    content: "!";
+    .hide {
+      display: none;
+    }
   }
-}
-
-.hide {
-    display: none;
 }
