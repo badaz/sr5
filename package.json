@@ -1,10 +1,13 @@
 {
   "scripts": {
-    "build:css": "lessc -clean-css less/index.less css/style.css"
+    "dev": "vite serve",
+    "build": "vite build"
   },
   "devDependencies": {
+    "@rollup/plugin-replace": "^4.0.0",
     "less": "^4.1.2",
     "less-plugin-clean-css": "^1.5.1",
+    "path": "^0.12.7",
     "vite": "^2.8.4",
     "vite-plugin-static-copy": "^0.3.0"
   }

@@ -1,7 +1,9 @@
-import { viteStaticCopy } from "vite-plugin-static-copy";
+import replace from "@rollup/plugin-replace";
+const path = require("path");
 
 const config = {
-  publicDir: "public",
+  root: "src/",
+  publicDir: path.resolve(__dirname, "public"),
   base: "/systems/sr5/",
   server: {
     port: 30001,
@@ -15,47 +17,25 @@ const config = {
     },
   },
   build: {
-    assetsDir: "assets",
-    assetsInlineLimit: 0,
-    outDir: "dist",
+    outDir: path.resolve(__dirname, "dist"),
     emptyOutDir: true,
     sourcemap: true,
     lib: {
       name: "sr5",
-      entry: "sr5.es.js",
+      entry: path.resolve(__dirname, "src/sr5.es.js"),
       formats: ["es"],
       fileName: "sr5",
     },
   },
   plugins: [
-    viteStaticCopy({
-      targets: [
-        {
-          src: "system.json",
-          dest: "./",
-        },
-        {
-          src: "template.json",
-          dest: "./",
-        },
-        {
-          src: "img",
-          dest: "./",
-        },
-        {
-          src: "templates",
-          dest: "./",
-        },
-        {
-          src: "lang",
-          dest: "./",
-        },
-        {
-          src: "css/fonts",
-          dest: "./css",
-        },
-      ],
-    }),
+    {
+      ...replace({
+        // values: { "./assets": "systems/sr5/assets" },
+        values: { "systems/sr5/assets": "./assets" },
+        include: ["src/**/*.less"],
+      }),
+      apply: "build",
+    },
   ],
   compilerOptions: {
     types: ["vite/client"],
