@@ -30,7 +30,6 @@ const config = {
   plugins: [
     {
       ...replace({
-        // values: { "./assets": "systems/sr5/assets" },
         values: { "systems/sr5/assets": "./assets" },
         include: ["src/**/*.less"],
       }),
