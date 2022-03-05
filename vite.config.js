@@ -1,5 +1,5 @@
 import replace from "@rollup/plugin-replace";
-import liveReload from "vite-plugin-live-reload";
+// import liveReload from "vite-plugin-live-reload";
 const path = require("path");
 
 const config = {
@@ -36,10 +36,10 @@ const config = {
       }),
       apply: "build",
     },
-    liveReload("**/*", {
-      alwaysReload: true,
-      root: path.resolve(__dirname, "public"),
-    }),
+    // liveReload("**/*", {
+    //   alwaysReload: true,
+    //   root: path.resolve(__dirname, "public"),
+    // }),
   ],
   compilerOptions: {
     types: ["vite/client"],
