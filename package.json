@@ -1,6 +1,5 @@
 {
   "name": "sr5",
-  "version": "0.0.4.19",
   "scripts": {
     "dev": "vite serve",
     "watch:public": "node ./build/watch.js",
